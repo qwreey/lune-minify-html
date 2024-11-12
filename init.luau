@@ -34,9 +34,6 @@ function minify_html:minify(code: string): string
 	local result_table = minify_result:readData(result)
 	local result_string = result_table[2]:readString(result_table[1])
 	ffi.free(result_table[2])
-	if result_table[3] == 1 then
-		error(result_string)
-	end
 	return result_string
 end
 
