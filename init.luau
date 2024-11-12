@@ -17,7 +17,7 @@ local minify_result = ffi.c.struct({
 	-- len
 	ffi.i32,
 	-- ptr
-	ffi.c.char:ptr(),
+	ffi.u8:ptr(),
 })
 
 function minify_html.new(lib_path: string): minify_html
