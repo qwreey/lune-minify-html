@@ -1,24 +1,29 @@
-# lune-lightningcss
+# lune-minify-html
 
-Simple [lightningcss](https://github.com/parcel-bundler/lightningcss) wrapper for lune runtime, with ffi edge feature.
+Simple [minify-html](https://github.com/wilsonzlin/minify-html) wrapper for lune runtime, with ffi edge feature.
 
 ## Example usage
 
 Run `cargo build --profile=release` first to get shared object.
 
 ```luau
-local lightningcss = require("./")
-    .new("./target/release/liblune_lightningcss.so")
+local minify_html = require("./")
+    .new("./target/release/liblune_minify_html.so")
 
-local result = lightningcss:minify([[
-    body > .asdf {
-        background-color: rgb(123, 89, 231);
-    }
+local result = minify_html:minify([[
+    <html>
+        <html>
+            <title>Hello world</title>
+        </html>
+        <body>
+            <p>Hello world</p>
+        </body>
+    </html>
 ]])
 
-print(result) -- body>.asdf{background-color:#7b59e7}
+print(result) -- <title>Hello world</title></html><body><p>Hello world
 ```
 
 ## TODO
 
-Parse/Minify/Print option supports
+Minify option supports
